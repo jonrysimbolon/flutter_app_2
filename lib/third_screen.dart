@@ -9,15 +9,9 @@ class ThirdScreen extends StatefulWidget {
 
 class _ThirdScreen extends State<ThirdScreen> {
   String? _language = 'Dart';
-  //String? _name = ''; used when didn't use controller
-
-  final TextEditingController _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  bool lightOn = false;
+  var listOfLanguage = ['Dart', 'Kotlin', 'Swift'];
+  bool agree = false;
 
   @override
   Widget build(BuildContext context) {
@@ -62,21 +56,58 @@ class _ThirdScreen extends State<ThirdScreen> {
                   _language = value;
                 });
               }),
-          TextField(
-            /*onChanged: (String value) { // each changed, the value is re-invoke
-              setState(() {
-                _name = value;
-              });
-            },*/
-            /*onSubmitted: (String value) { // when submit, the value is re-invoke
-              setState(() {
-                _name = value;
-              });
-            },*/
-            controller: _controller,
+          Switch(
+              value: lightOn,
+              onChanged: (bool value) {
+                setState(() {
+                  lightOn = value;
+                });
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(lightOn ? 'Light On' : 'Light Off'),
+                    duration: const Duration(seconds: 1),
+                  ),
+                );
+              }),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: List.generate(
+                listOfLanguage.length,
+                (index) => ListTile(
+                      leading: Radio<String>(
+                        value: listOfLanguage[index],
+                        groupValue: _language,
+                        onChanged: (String? value) {
+                          setState(() {
+                            _language = value;
+                            showSnackBar();
+                          });
+                        },
+                      ),
+                      title: Text(listOfLanguage[index]),
+                    )),
           ),
+          ListTile(
+            leading: Checkbox(
+              onChanged: (bool? value) {
+                setState(() {
+                  agree = value!;
+                });
+              },
+              value: agree,
+            ),
+            title: const Text('Agree / Disagree'),
+          )
         ],
       ),
     );
+  }
+
+  void showSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('$_language selected'),
+      duration: const Duration(seconds: 1),
+    ));
   }
 }

@@ -34,26 +34,27 @@ class FirstScreen extends StatelessWidget {
           style: TextStyle(fontSize: 40),
         ),
       )*/
-      body: Container(
-        decoration: /* const */ BoxDecoration( // Dekorasi Container
-          color: Colors.red,
-          //shape: BoxShape.circle,
-          /*boxShadow: [
+      body: Padding( // Padding
+        padding: const EdgeInsets.all(30),
+        child: Container(
+          decoration: /* const */ BoxDecoration(
+            // Dekorasi Container
+            color: Colors.red,
+            //shape: BoxShape.circle,
+            /*boxShadow: [
             BoxShadow(
               color: Colors.black,
               offset: Offset(3, 6),
               blurRadius: 10
             )
           ]*/
-          border: Border.all(
-            color: Colors.green,
-            width: 3
+            border: Border.all(color: Colors.green, width: 3),
+            borderRadius: BorderRadius.circular(10),
           ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: const Text(
-          'Hi',
-          style: TextStyle(fontSize: 40),
+          child: const Text(
+            'Hi',
+            style: TextStyle(fontSize: 40),
+          ),
         ),
       ),
       floatingActionButton:

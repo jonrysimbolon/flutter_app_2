@@ -23,12 +23,34 @@ class FirstScreen extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      body: Container(
+      /*body: Container( // pengenalan container
         //padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.all(10),
         //width: 200,
         //height: 100,
         color: Colors.blue,
+        child: const Text(
+          'Hi',
+          style: TextStyle(fontSize: 40),
+        ),
+      )*/
+      body: Container(
+        decoration: /* const */ BoxDecoration( // Dekorasi Container
+          color: Colors.red,
+          //shape: BoxShape.circle,
+          /*boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              offset: Offset(3, 6),
+              blurRadius: 10
+            )
+          ]*/
+          border: Border.all(
+            color: Colors.green,
+            width: 3
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: const Text(
           'Hi',
           style: TextStyle(fontSize: 40),

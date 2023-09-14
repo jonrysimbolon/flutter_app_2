@@ -34,7 +34,9 @@ class FirstScreen extends StatelessWidget {
           style: TextStyle(fontSize: 40),
         ),
       )*/
-      body: Padding( // Padding
+      body: Center( // adding center
+          child: Padding(
+        // Padding
         padding: const EdgeInsets.all(30),
         child: Container(
           decoration: /* const */ BoxDecoration(
@@ -56,7 +58,7 @@ class FirstScreen extends StatelessWidget {
             style: TextStyle(fontSize: 40),
           ),
         ),
-      ),
+      )),
       floatingActionButton:
           FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
     );

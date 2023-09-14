@@ -8,7 +8,16 @@ class ThirdScreen extends StatefulWidget {
 }
 
 class _ThirdScreen extends State<ThirdScreen> {
-  String? language = 'Dart';
+  String? _language = 'Dart';
+  //String? _name = ''; used when didn't use controller
+
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +55,26 @@ class _ThirdScreen extends State<ThirdScreen> {
                 DropdownMenuItem(value: 'Kotlin', child: Text('Kotlin')),
                 DropdownMenuItem(value: 'Swift', child: Text('Swift')),
               ],
-              value: language,
+              value: _language,
               hint: const Text('Select language'),
               onChanged: (String? value) {
                 setState(() {
-                  language = value;
+                  _language = value;
                 });
-              })
+              }),
+          TextField(
+            /*onChanged: (String value) { // each changed, the value is re-invoke
+              setState(() {
+                _name = value;
+              });
+            },*/
+            /*onSubmitted: (String value) { // when submit, the value is re-invoke
+              setState(() {
+                _name = value;
+              });
+            },*/
+            controller: _controller,
+          ),
         ],
       ),
     );

@@ -8,27 +8,26 @@ class EightScreen extends StatefulWidget {
 }
 
 class _EightScreen extends State<EightScreen> {
-  final List<int> numberList = const <int>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  final List<int> numberList = const <int>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
-      children: numberList.map((number) {
+        body: ListView.builder(
+      itemCount: numberList.length,
+      itemBuilder: (BuildContext context, int index) {
         return Container(
           height: 250,
           decoration: BoxDecoration(
-            color: Colors.grey,
-            border: Border.all(color: Colors.black),
-          ),
+              color: Colors.grey, border: Border.all(color: Colors.black)),
           child: Center(
             child: Text(
-              '$number',
+              '${numberList[index]}',
               style: const TextStyle(fontSize: 50),
             ),
           ),
         );
-      }).toList(),
+      },
     ));
   }
 }

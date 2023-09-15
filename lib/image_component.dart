@@ -29,12 +29,12 @@ class _SixScreen extends State<SixScreen> {
         ),
       ),
       body: Center(
-        child: /*Image.network( // from remote
+        child: Image.network( // from remote
           'https://picsum.photos/200/300',
           width: 200,
           height: 200,
-        )*/
-            Image.asset('images/android.png'), // from local
+        )
+            //Image.asset('images/android.png'), // from local
       ),
     );
   }

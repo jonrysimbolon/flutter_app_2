@@ -9,7 +9,8 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_app_2/listview_screen.dart';
 //import 'package:flutter_app_2/expanded_and_flexible_widget.dart';
 //import 'package:flutter_app_2/navigation_component.dart';
-import 'package:flutter_app_2/responsive_layout.dart';
+//import 'package:flutter_app_2/responsive_layout.dart';
+import 'package:flutter_app_2/responsive_layout_2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
       //home: const EightScreen(),
       //home: const NineScreen(),
       //home: const TenScreen(),
-      home: const ElevenScreen(),
+      //home: const ElevenScreen(),
+      home: const TwelveScreen(),
     );
   }
 }
